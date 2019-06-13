@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,35 +11,34 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_weight="1"
+            android:layout_weight="0.8"
             android:textSize="20sp"
-            android:text="Score"/>
+            android:text="分数"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/score"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="1"
             android:textSize="22sp"
             android:textColor="@color/colorAccent"
-            android:id="@+id/score"/>
+            android:text="0" />
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/btn_restart"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/but"
             android:text="重新开始"
-            android:layout_weight="1"/>
+            android:layout_weight="1.2"/>
     </LinearLayout>
     <com.example.my2048.GameView
+        android:id="@+id/gameview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/gameview">
+        android:layout_weight="1">
     </com.example.my2048.GameView>
-
-
 
 </LinearLayout>
 

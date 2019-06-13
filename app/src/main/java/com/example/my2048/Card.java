@@ -8,6 +8,10 @@ import android.widget.TextView;
 
 public class Card extends FrameLayout {
 
+    private TextView label;
+    private View background;
+    private int num = 0;
+
     public Card(Context context) {
         super(context);
 
@@ -30,9 +34,6 @@ public class Card extends FrameLayout {
         setNum(0);
     }
 
-
-    private int num = 0;
-
     public int getNum() {
         return num;
     }
@@ -45,7 +46,7 @@ public class Card extends FrameLayout {
         }else{
             label.setText(num+"");
         }
-//不同的数字不同的颜色
+        //不同的数字显示不同的颜色
         switch (num) {
             case 0:
                 label.setBackgroundColor(0x00000000);
@@ -90,7 +91,7 @@ public class Card extends FrameLayout {
     }
 
     public boolean equals(Card o) {
-        return getNum()==o.getNum();
+        return this.num==o.getNum();
     }
 
     protected Card clone(){
@@ -103,7 +104,5 @@ public class Card extends FrameLayout {
         return label;
     }
 
-    private TextView label;
-    private View background;
 }
 

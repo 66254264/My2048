@@ -7,13 +7,15 @@ import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.GridLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameView extends GridLayout {
+
+    private Card[][] cardsMap = new Card[4][4];
+    private List<Point> emptyPoints = new ArrayList<Point>();
 
     public GameView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -50,12 +52,14 @@ public class GameView extends GridLayout {
                         offsetX = event.getX()-startX;
                         offsetY = event.getY()-startY;
                         if (Math.abs(offsetX)>Math.abs(offsetY)) {
+                            //左右滑动
                             if (offsetX<-5) {
                                 swipeLeft();
                             }else if (offsetX>5) {
                                 swipeRight();
                             }
                         }else{
+                            //上下滑动
                             if (offsetY<-5) {
                                 swipeUp();
                             }else if (offsetY>5) {
@@ -262,12 +266,11 @@ public class GameView extends GridLayout {
         ALL:
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
-                if (cardsMap[x][y].getNum()==0||
-                        (x>0&&cardsMap[x][y].equals(cardsMap[x-1][y]))||
-                        (x<3&&cardsMap[x][y].equals(cardsMap[x+1][y]))||
-                        (y>0&&cardsMap[x][y].equals(cardsMap[x][y-1]))||
-                        (y<3&&cardsMap[x][y].equals(cardsMap[x][y+1]))) {
-
+                if (cardsMap[x][y].getNum()==0
+                        || (x>0&&cardsMap[x][y].equals(cardsMap[x-1][y]))
+                        || (x<3&&cardsMap[x][y].equals(cardsMap[x+1][y]))
+                        || (y>0&&cardsMap[x][y].equals(cardsMap[x][y-1]))
+                        || (y<3&&cardsMap[x][y].equals(cardsMap[x][y+1]))) {
                     complete = false;
                     break ALL;
                 }
@@ -275,8 +278,9 @@ public class GameView extends GridLayout {
         }
 
         if (complete) {
-            new AlertDialog.Builder(getContext()).setTitle("菜鸡").setMessage("You Lost").setPositiveButton("重来", new DialogInterface.OnClickListener() {
-
+            new AlertDialog.Builder(getContext())
+                    .setTitle("菜鸡").setMessage("You Lost")
+                    .setPositiveButton("重来", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     startGame();
@@ -284,10 +288,7 @@ public class GameView extends GridLayout {
             }).show();
         }
 
-
     }
-    private Button button;
-    private Card[][] cardsMap = new Card[4][4];
-    private List<Point> emptyPoints = new ArrayList<Point>();
+
 }
 
