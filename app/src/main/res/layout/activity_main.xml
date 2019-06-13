@@ -11,15 +11,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_weight="0.8"
+            android:layout_weight="1"
             android:textSize="20sp"
             android:text="分数"/>
         <TextView
             android:id="@+id/score"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="1"
@@ -28,10 +28,10 @@
             android:text="0" />
         <Button
             android:id="@+id/btn_restart"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="重新开始"
-            android:layout_weight="1.2"/>
+            android:layout_weight="1"/>
     </LinearLayout>
     <com.example.my2048.GameView
         android:id="@+id/gameview"

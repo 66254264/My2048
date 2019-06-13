@@ -34,7 +34,7 @@ public class GameView extends GridLayout {
 
         initGameView();
     }
-    //游戏主体
+    //游戏主体初始化
     private void initGameView(){
         setColumnCount(4);
         setBackgroundColor(0xffbbada0);
@@ -80,6 +80,7 @@ public class GameView extends GridLayout {
         addCards(cardWidth,cardWidth);
         startGame();
     }
+
     //卡片分布
     private void addCards(int cardWidth,int cardHeight){
         Card c;
@@ -92,6 +93,7 @@ public class GameView extends GridLayout {
             }
         }
     }
+
     //开始游戏
     public void startGame(){
 
@@ -106,6 +108,7 @@ public class GameView extends GridLayout {
         addRandomNum();
         addRandomNum();
     }
+
     //随机数字
     private void addRandomNum(){
         emptyPoints.clear();
@@ -154,6 +157,7 @@ public class GameView extends GridLayout {
             checkComplete();
         }
     }
+
     private void swipeRight(){
 
         boolean merge = false;
@@ -188,6 +192,7 @@ public class GameView extends GridLayout {
             checkComplete();
         }
     }
+
     private void swipeUp(){
 
         boolean merge = false;
@@ -224,6 +229,7 @@ public class GameView extends GridLayout {
             checkComplete();
         }
     }
+
     private void swipeDown(){
 
         boolean merge = false;
@@ -258,6 +264,7 @@ public class GameView extends GridLayout {
             checkComplete();
         }
     }
+
     //结束判断
     private void checkComplete(){
 
